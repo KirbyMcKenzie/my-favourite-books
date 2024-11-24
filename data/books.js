@@ -1,4 +1,4 @@
-import data from './data.js';
+import data from "./data.js";
 
 export default class Books {
   askListBooks() {
@@ -6,12 +6,12 @@ export default class Books {
   }
 
   _mockServerRequest = () => {
-    return new Promise(resolve => {
-      window.setTimeout(() => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
         resolve(data.books);
       }, this._random());
     });
-  }
+  };
 
   _random() {
     return Math.floor(Math.random() * 1200);
