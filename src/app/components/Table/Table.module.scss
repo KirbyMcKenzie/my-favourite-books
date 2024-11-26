@@ -1,0 +1,33 @@
+.table {
+  border-collapse: collapse;
+  color: var(--content-medium);
+
+  .tableHeader {
+    height: 52px;
+    padding: 16px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .tableBody {
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+
+    tr {
+      &:not(:first-child) {
+        border-top: 1px solid var(--border-lightest);
+      }
+    }
+
+    .tableCell {
+      height: 136px;
+      width: 230px;
+      padding: 16px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+  }
+}
