@@ -8,6 +8,23 @@ import styles from "./BookTable.module.scss";
 
 const booksApi = new Books();
 
+const genres = [
+  "biography",
+  "business",
+  "design",
+  "history",
+  "nonfiction",
+  "politics",
+  "programming",
+  "science",
+  "self help",
+];
+
+const genreOptions = genres.map((genre) => ({
+  value: genre,
+  label: titleCase(genre),
+}));
+
 const columns = [
   { key: "title", header: "Title", cellClass: "text-content-2-bold" },
   { key: "author", header: "Author", cellClass: "text-content-4" },
@@ -46,12 +63,6 @@ const BookTable = () => {
 
     fetchData();
   }, [selectedGenre]);
-
-  const genres = [...new Set(books.flatMap(({ genre }) => genre))];
-  const genreOptions = genres.map((genre) => ({
-    value: genre,
-    label: titleCase(genre),
-  }));
 
   return (
     <div className={styles.container}>
