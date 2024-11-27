@@ -1,19 +1,14 @@
 import styles from "./page.module.scss";
-import Books from "../../data/books";
-import Table from "./components/table";
+
+import BookTable from "./components/BookTable";
 
 export default async function Home() {
-  const booksApi = new Books();
-  const books = await booksApi.askListBooks();
-  const columns = ["title", "author", "year", "genre"];
-
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <h1>{"📚 My Favorite Books"}</h1>
-
-        <Table columns={columns} data={books} />
-      </main>
-    </div>
+    <main className={styles.main}>
+      <div className={styles.headerContainer}>
+        <h1 className={styles.header}>{"📚 My Favorite Books"}</h1>
+      </div>
+      <BookTable />
+    </main>
   );
 }
