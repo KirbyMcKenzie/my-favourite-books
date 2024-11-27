@@ -66,7 +66,7 @@ const BookTable = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.searchWrapper}>
+      <div className={styles.searchContainer}>
         <SearchableSelect
           options={genreOptions}
           placeholder="Genre"
@@ -76,12 +76,12 @@ const BookTable = () => {
         />
       </div>
 
-      <div className={styles.tableWrapper}>
+      <div className={styles.tableContainer}>
         <Table
           columns={columns}
           data={books}
           isLoading={isLoading}
-          loaderStyles={styles.loaderWrapper}
+          loaderStyles={styles.loaderContainer}
         />
       </div>
     </div>

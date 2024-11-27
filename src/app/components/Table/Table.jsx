@@ -3,7 +3,7 @@ import TableLoader from "./TableLoader";
 
 const Table = ({ data, columns = [], isLoading = false, loaderStyles }) => {
   return (
-    <div className={styles.tableWrapper}>
+    <div className={styles.tableContainer}>
       <table className={styles.table}>
         <thead>
           <tr className={styles.tableHeaderRow}>
