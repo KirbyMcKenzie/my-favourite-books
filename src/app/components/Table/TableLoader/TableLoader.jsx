@@ -7,7 +7,7 @@ const TableLoader = ({ colSpan, loaderStyles }) => {
       <td colSpan={colSpan} className={`${styles.loadingCell} ${loaderStyles}`}>
         <div className={styles.loader}>
           <LoadingSpinner />
-          {"Loading..."}
+          <span className="text-content-3">{"Loading..."}</span>
         </div>
       </td>
     </tr>

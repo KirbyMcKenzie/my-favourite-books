@@ -9,13 +9,13 @@ import styles from "./BookTable.module.scss";
 const booksApi = new Books();
 
 const columns = [
-  { key: "title", header: "Title", cellClass: "text-content-sm-bold" },
-  { key: "author", header: "Author", cellClass: "text-content-xs" },
-  { key: "year", header: "Year", cellClass: "text-content-sm" },
+  { key: "title", header: "Title", cellClass: "text-content-2-bold" },
+  { key: "author", header: "Author", cellClass: "text-content-4" },
+  { key: "year", header: "Year", cellClass: "text-content-2" },
   {
     key: "genre",
     header: "Genre",
-    cellClass: "text-content-xs",
+    cellClass: "text-content-4",
     render: (values) =>
       values.map(
         (value, index) => `${index !== 0 ? "," : ""} ${titleCase(value)}`
