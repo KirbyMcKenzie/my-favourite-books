@@ -1,10 +1,10 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 
-import styles from "./SearchableSelect.module.scss";
+import ListItem from "./SearchableSelectListItem";
 import ArrowDownIcon from "../Icons/ArrowDown";
 import ClearIcon from "../Icons/Clear";
+import styles from "./SearchableSelect.module.scss";
 
 const SearchableSelect = ({
   options = [],
@@ -90,21 +90,13 @@ const SearchableSelect = ({
           {filteredOptions.length > 0 && (
             <ul className={styles.options} role="listbox">
               {filteredOptions.map((option) => (
-                <li
+                <ListItem
                   key={option.value}
-                  className={styles.option}
-                  aria-selected={selected?.value === option.value}
-                  role="option"
-                  tabIndex={0}
-                  onClick={() => handleSelect(option)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      handleSelect(option);
-                    }
-                  }}
-                >
-                  {option.label}
-                </li>
+                  option={option}
+                  filter={filter}
+                  isSelected={selected?.value === option.value}
+                  onSelect={handleSelect}
+                />
               ))}
             </ul>
           )}
