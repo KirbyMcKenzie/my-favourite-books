@@ -31,12 +31,17 @@ const BookTable = () => {
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
-      const data = await booksApi.askListBooks({
-        limit: 10,
-        genre: selectedGenre,
-      });
-      setBooks(data);
-      setIsLoading(false);
+      try {
+        const data = await booksApi.askListBooks({
+          limit: 10,
+          genre: selectedGenre,
+        });
+        setBooks(data);
+      } catch (error) {
+        console.error("Failed to fetch books:", error);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     fetchData();
