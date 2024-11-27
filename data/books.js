@@ -1,14 +1,22 @@
 import data from "./data.js";
 
 export default class Books {
-  askListBooks() {
-    return this._mockServerRequest();
+  askListBooks(queryParams) {
+    return this._mockServerRequest(queryParams);
   }
 
-  _mockServerRequest = () => {
+  _mockServerRequest = ({ limit, genre }) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(data.books);
+        let filteredBooks = data.books;
+
+        if (genre) {
+          filteredBooks = filteredBooks.filter((book) =>
+            book.genre.includes(genre)
+          );
+        }
+
+        resolve(filteredBooks.slice(0, limit));
       }, this._random());
     });
   };
